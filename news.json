@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2025-08",
+    "title": "Started PhD at George Mason University",
+    "body": "Joined George Mason's Computer Science PhD program and the Computational Reality, Creativity and Graphics Lab (CraGL) to research animation and non-photorealistic rendering.",
+    "pinned": true
+  },
+  {
+    "date": "2025-08",
+    "title": "Began teaching as a Graduate TA",
+    "body": "Leading lab sessions and holding weekly office hours for undergraduate computer science courses at GMU."
+  },
+  {
+    "date": "2025-04",
+    "title": "Finished AmeriCorps NCCC — Forest Corps",
+    "body": "Wrapped up a year of national service with the US Forest Service — 1,600+ hours reducing wildfire risk across the Western US. Came home a certified Type 2 Firefighter and Type A Sawyer."
+  },
+  {
+    "date": "2023-04",
+    "title": "Completed ML engineering at Comcast",
+    "body": "Shipped a personalized content-recommendation prototype for Xfinity On-Demand and cut pipeline compute time by 85%."
+  }
+]
