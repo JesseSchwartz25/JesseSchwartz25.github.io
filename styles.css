@@ -50,8 +50,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.55;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -183,18 +183,18 @@ code {
   position: relative;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 96px 28px 72px;
+  padding: 56px 20px 40px;
 }
 .hero__inner { position: relative; z-index: 2; }
 .hero__eyebrow {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--forest-deep);
   display: flex; align-items: center; gap: 10px;
-  margin: 0 0 18px;
+  margin: 0 0 12px;
 }
 .dot {
   width: 10px; height: 10px; border-radius: 50%;
@@ -211,10 +211,10 @@ code {
   font-family: var(--serif);
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1, "wght" 900;
   font-weight: 900;
-  font-size: clamp(64px, 13vw, 176px);
+  font-size: clamp(52px, 11vw, 140px);
   line-height: 0.92;
   letter-spacing: -0.02em;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   color: var(--ink);
   text-shadow:
     3px 0 0 rgba(230,52,98,0.55),
@@ -240,10 +240,10 @@ code {
 .hero__tag {
   font-family: var(--serif);
   font-variation-settings: "opsz" 24, "SOFT" 50, "wght" 450;
-  font-size: clamp(18px, 2.2vw, 24px);
-  line-height: 1.45;
-  max-width: 640px;
-  margin: 0 0 12px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.4;
+  max-width: 580px;
+  margin: 0 0 8px;
   color: var(--ink-soft);
 }
 .hero__tag em {
@@ -253,9 +253,9 @@ code {
 }
 
 .hero__squiggle {
-  width: min(340px, 70%);
-  height: 18px;
-  margin: 6px 0 28px;
+  width: min(280px, 60%);
+  height: 14px;
+  margin: 4px 0 18px;
   stroke: var(--magenta);
   animation: draw 2s ease-out 0.4s both;
 }
@@ -267,20 +267,20 @@ code {
 @keyframes draw { to { stroke-dashoffset: 0; } }
 
 .hero__cta {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  margin-bottom: 26px;
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 .btn {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.02em;
-  padding: 12px 22px;
+  padding: 9px 18px;
   border-radius: 999px;
   text-decoration: none;
-  border: 2.5px solid var(--ink);
+  border: 2px solid var(--ink);
   transition: transform 0.18s steps(3), box-shadow 0.18s steps(3), background 0.15s;
-  box-shadow: 4px 4px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 .btn--primary {
   background: var(--magenta);
@@ -336,14 +336,14 @@ code {
 .section {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 60px 28px;
+  padding: 40px 28px;
 }
 .section__title {
   font-family: var(--serif);
   font-variation-settings: "opsz" 144, "SOFT" 80, "wght" 800;
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(28px, 4vw, 44px);
   line-height: 1;
-  margin: 0 0 28px;
+  margin: 0 0 18px;
   display: inline-block;
   position: relative;
 }
@@ -375,12 +375,48 @@ code {
   background: var(--paper);
   border: 2.5px solid var(--ink);
   border-radius: var(--radius);
-  padding: 28px 32px;
-  box-shadow: 8px 8px 0 var(--ink);
+  padding: 20px 24px;
+  box-shadow: 6px 6px 0 var(--ink);
   position: relative;
 }
 .card--about { transform: rotate(-0.3deg); }
 .card--research { transform: rotate(0.25deg); }
+
+.about__layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.about__photo-wrap {
+  position: relative;
+}
+.about__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 5px 5px 0 var(--ink);
+  display: block;
+  background: var(--paper-warm);
+}
+.about__photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background-image: radial-gradient(rgba(28,20,16,0.2) 1.2px, transparent 1.6px);
+  background-size: 8px 8px;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.about__text > p { margin: 0 0 10px; }
+.about__text > p:last-of-type { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .about__layout { grid-template-columns: 1fr; }
+  .about__photo { aspect-ratio: 1 / 1; max-width: 180px; }
+}
 .card .big {
   font-family: var(--serif);
   font-variation-settings: "opsz" 36, "SOFT" 100, "wght" 500;
@@ -429,17 +465,17 @@ code {
 }
 .news-item {
   position: relative;
-  padding: 0 0 26px 56px;
+  padding: 0 0 16px 48px;
   animation: fade-up 0.6s steps(6) both;
 }
 .news-item::before {
   content: "";
   position: absolute;
-  left: 6px; top: 8px;
-  width: 22px; height: 22px;
+  left: 6px; top: 6px;
+  width: 18px; height: 18px;
   border-radius: 50%;
   background: var(--amber);
-  border: 2.5px solid var(--ink);
+  border: 2px solid var(--ink);
   box-shadow: 2px 2px 0 var(--ink);
 }
 .news-item:nth-child(3n)::before   { background: var(--magenta); }
@@ -465,8 +501,8 @@ code {
 .news-item__title {
   font-family: var(--serif);
   font-variation-settings: "opsz" 36, "SOFT" 60, "wght" 700;
-  font-size: 22px;
-  margin: 6px 0 4px;
+  font-size: 18px;
+  margin: 4px 0 2px;
   line-height: 1.25;
 }
 .news-item__body {
@@ -708,8 +744,8 @@ code {
    FOOTER
    ========================================================= */
 .footer {
-  margin-top: 80px;
-  padding: 80px 28px 40px;
+  margin-top: 40px;
+  padding: 48px 28px 28px;
   background: var(--forest-deep);
   color: var(--paper);
   position: relative;
@@ -733,9 +769,9 @@ code {
 .footer__title {
   font-family: var(--serif);
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1, "wght" 900;
-  font-size: clamp(56px, 9vw, 120px);
+  font-size: clamp(40px, 7vw, 80px);
   line-height: 0.9;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   color: var(--gold);
   text-shadow:
     3px 0 0 rgba(230,52,98,0.7),
@@ -784,9 +820,9 @@ code {
   .nav { padding: 10px 16px; }
   .nav__links { gap: 2px; }
   .nav__links a { padding: 5px 9px; font-size: 13px; }
-  .hero { padding: 60px 20px 40px; }
-  .section { padding: 44px 20px; }
-  .card { padding: 22px 22px; box-shadow: 5px 5px 0 var(--ink); }
+  .hero { padding: 36px 16px 28px; }
+  .section { padding: 28px 16px; }
+  .card { padding: 16px 18px; box-shadow: 4px 4px 0 var(--ink); }
   .hero__name::before { transform: translate(4px, 4px); }
 }
 
