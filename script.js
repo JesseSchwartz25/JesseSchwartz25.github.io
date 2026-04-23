@@ -2,6 +2,77 @@
 // Jesse Schwartz — portfolio scripts
 // =========================================================
 
+// ---- Random theme on load ----
+const THEMES = ["spiderverse", "wildrobot", "lastwish"];
+const THEME_PALETTES = {
+  spiderverse: ["#ff1a5e", "#00d4e8", "#f0e020", "#3a5ab0", "#f8b830"],
+  wildrobot:   ["#7aaa50", "#5c7a4a", "#2a5c38", "#d48030", "#f0b438"],
+  lastwish:    ["#dc1e44", "#ff7dfc", "#fede8a", "#9fc82c", "#ec6f44"],
+};
+
+const theme = THEMES[Math.floor(Math.random() * THEMES.length)];
+document.documentElement.dataset.theme = theme;
+
+// ---- Dot colorization helpers ----
+function shuffled(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function colorQueue(palette, count) {
+  const q = [];
+  while (q.length < count) q.push(...shuffled(palette));
+  return q.slice(0, count);
+}
+function dotTextColor(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return (r*299 + g*587 + b*114)/1000 < 128 ? "var(--paper)" : "var(--ink)";
+}
+
+function applyAccents(t) {
+  const p = THEME_PALETTES[t];
+
+  // Hero eyebrow dots — 2 distinct colors
+  const [c1, c2] = colorQueue(p, 2);
+  const eyebrowDots = document.querySelectorAll(".hero__eyebrow .dot");
+  if (eyebrowDots[0]) eyebrowDots[0].style.background = c1;
+  if (eyebrowDots[1]) eyebrowDots[1].style.background = c2;
+
+  // Beyond emoji circles — all distinct
+  const beyondEmojis = document.querySelectorAll(".beyond__emoji");
+  colorQueue(p, beyondEmojis.length).forEach((color, i) => {
+    beyondEmojis[i].style.background = color;
+    beyondEmojis[i].style.color = dotTextColor(color);
+  });
+
+  // News timeline dots — all distinct
+  const newsItems = [...document.querySelectorAll(".news-item:not([data-pin='true'])")];
+  colorQueue(p, newsItems.length).forEach((color, i) => {
+    newsItems[i].style.setProperty("--dot-color", color);
+  });
+
+  // Sync active state on theme buttons
+  document.querySelectorAll(".theme-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.theme === t);
+  });
+}
+
+applyAccents(theme);
+
+// Theme switcher
+document.querySelectorAll(".theme-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const t = btn.dataset.theme;
+    document.documentElement.dataset.theme = t;
+    applyAccents(t);
+  });
+});
+
 // ---- Current year in footer ----
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -63,6 +134,7 @@ async function loadNews() {
     }
     data.sort(sortNews);
     list.innerHTML = data.map(renderItem).join("");
+    applyAccents(document.documentElement.dataset.theme);
   } catch (err) {
     console.error(err);
     list.innerHTML = `

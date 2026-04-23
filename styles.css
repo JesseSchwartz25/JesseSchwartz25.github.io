@@ -40,6 +40,17 @@
   /* Layout */
   --max:    1100px;
   --radius: 14px;
+
+  /* Backdrop glow colors — overridden per theme */
+  --glow-1: rgba(232,160,76,0.35);
+  --glow-2: rgba(20,197,199,0.18);
+  --glow-3: rgba(45,74,58,0.28);
+
+  /* Section title highlight bar */
+  --highlight: var(--gold);
+
+  /* Primary accent — used for squiggle, buttons, underlines */
+  --accent: var(--magenta);
 }
 
 /* ---------- RESET-ISH ---------- */
@@ -76,9 +87,9 @@ code {
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(1200px 900px at 10% -10%, rgba(232,160,76,0.35), transparent 60%),
-    radial-gradient(900px 800px at 110% 20%, rgba(20,197,199,0.18), transparent 55%),
-    radial-gradient(1000px 900px at 50% 110%, rgba(45,74,58,0.28), transparent 60%),
+    radial-gradient(1200px 900px at 10% -10%, var(--glow-1), transparent 60%),
+    radial-gradient(900px 800px at 110% 20%, var(--glow-2), transparent 55%),
+    radial-gradient(1000px 900px at 50% 110%, var(--glow-3), transparent 60%),
     linear-gradient(180deg, var(--paper) 0%, var(--paper-warm) 60%, var(--paper-dark) 100%);
 }
 .blob {
@@ -256,7 +267,7 @@ code {
   width: min(280px, 60%);
   height: 14px;
   margin: 4px 0 18px;
-  stroke: var(--magenta);
+  stroke: var(--accent);
   animation: draw 2s ease-out 0.4s both;
 }
 .hero__squiggle path {
@@ -283,14 +294,15 @@ code {
   box-shadow: 3px 3px 0 var(--ink);
 }
 .btn--primary {
-  background: var(--magenta);
+  background: var(--accent);
   color: var(--paper);
 }
 .btn--primary:hover {
-  background: var(--magenta-hot);
+  background: var(--accent);
   color: var(--paper);
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0 var(--ink);
+  filter: brightness(1.12);
 }
 .btn--ghost {
   background: var(--paper);
@@ -358,7 +370,7 @@ code {
   left: -6px; right: -6px;
   bottom: 6px;
   height: 14px;
-  background: var(--gold);
+  background: var(--highlight);
   z-index: 0;
   border-radius: 4px;
   transform: rotate(-1deg);
@@ -474,13 +486,10 @@ code {
   left: 6px; top: 6px;
   width: 18px; height: 18px;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--dot-color, var(--amber));
   border: 2px solid var(--ink);
   box-shadow: 2px 2px 0 var(--ink);
 }
-.news-item:nth-child(3n)::before   { background: var(--magenta); }
-.news-item:nth-child(3n+1)::before { background: var(--cyan); }
-.news-item:nth-child(3n+2)::before { background: var(--ember); }
 
 .news-item[data-pin="true"]::before {
   background: var(--red);
@@ -737,8 +746,6 @@ code {
   box-shadow: 3px 3px 0 var(--ink);
   margin-bottom: 4px;
 }
-.beyond__card:nth-child(2) .beyond__emoji { background: var(--cyan); }
-.beyond__card:nth-child(3) .beyond__emoji { background: var(--magenta); color: var(--paper); }
 
 /* =========================================================
    FOOTER
@@ -792,7 +799,7 @@ code {
   font-size: clamp(18px, 3vw, 28px);
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 3px solid var(--magenta);
+  border-bottom: 3px solid var(--accent);
   padding-bottom: 4px;
   margin-bottom: 24px;
   transition: color 0.15s, border-color 0.15s;
@@ -811,6 +818,122 @@ code {
   margin: 30px 0 0;
   font-size: 13px;
   opacity: 0.55;
+}
+
+/* =========================================================
+   THEMES — applied via data-theme on <html>
+   ========================================================= */
+
+/* Spider-Verse: urban, graphic, neon pops on near-newsprint */
+[data-theme="spiderverse"] {
+  --paper:       #ece5dc;
+  --paper-warm:  #e0d6c8;
+  --paper-dark:  #ccc0ae;
+  --forest:      #1a1e3a;
+  --forest-deep: #0e1228;
+  --moss:        #3a5ab0;
+  --amber:       #f0a020;
+  --ember:       #f8b830;
+  --gold:        #f0e020;
+  --magenta:     #ff1a5e;
+  --magenta-hot: #ff0050;
+  --cyan:        #00d4e8;
+  --cyan-bright: #20ecf8;
+  --glow-1: rgba(255,26,94,0.28);
+  --glow-2: rgba(0,212,232,0.22);
+  --glow-3: rgba(26,30,58,0.30);
+  --highlight: var(--cyan);
+  --accent: var(--magenta);
+}
+
+/* Wild Robot: warm painterly forest, amber-gold, soft earthy tones */
+[data-theme="wildrobot"] {
+  --paper:       #f6eac6;
+  --paper-warm:  #eedc9c;
+  --paper-dark:  #deca7e;
+  --forest:      #264038;
+  --forest-deep: #162a22;
+  --moss:        #5c7a4a;
+  --amber:       #d48030;
+  --ember:       #e89838;
+  --gold:        #f0b438;
+  --magenta:     #c84468;
+  --magenta-hot: #e05a7c;
+  --cyan:        #18b8b0;
+  --cyan-bright: #30d0c8;
+  --glow-1: rgba(212,128,48,0.42);
+  --glow-2: rgba(24,184,176,0.18);
+  --glow-3: rgba(38,64,56,0.35);
+  --highlight: #7aaa50;
+  --accent: #7aaa50;
+}
+
+/* Last Wish: jasmine parchment, raspberry + bright-peony magic, midnight-blue night, coffee-bean depth */
+[data-theme="lastwish"] {
+  --paper:       #fef4c8;
+  --paper-warm:  #fede8a;
+  --paper-dark:  #e8c050;
+  --forest:      #2f2562;
+  --forest-deep: #1c0d17;
+  --moss:        #9fc82c;
+  --amber:       #ec6f44;
+  --ember:       #f08858;
+  --gold:        #fede8a;
+  --red:         #dc1e44;
+  --red-deep:    #b93136;
+  --magenta:     #ff7dfc;
+  --magenta-hot: #ff90fd;
+  --cyan:        #2f2562;
+  --cyan-bright: #d5a8d4;
+  --glow-1: rgba(220,30,68,0.38);
+  --glow-2: rgba(254,222,138,0.35);
+  --glow-3: rgba(28,13,23,0.32);
+  --highlight: var(--gold);
+  --accent: var(--red);
+}
+
+/* =========================================================
+   THEME SWITCHER
+   ========================================================= */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 28px 0 0;
+  flex-wrap: wrap;
+}
+.theme-switcher__label {
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.45;
+  margin-right: 4px;
+}
+.theme-btn {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 5px 14px;
+  border: 2px solid rgba(242,230,202,0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s, color 0.15s;
+}
+.theme-btn:hover { opacity: 0.85; border-color: rgba(242,230,202,0.6); }
+.theme-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+  opacity: 1;
+  box-shadow: 2px 2px 0 rgba(28,20,16,0.35);
 }
 
 /* =========================================================
