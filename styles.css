@@ -872,9 +872,9 @@ code {
 [data-theme="lastwish"] {
   --paper:       #fef4c8;
   --paper-warm:  #fede8a;
-  --paper-dark:  #e8c050;
+  --paper-dark:  #5088e8;
   --forest:      #2f2562;
-  --forest-deep: #1c0d17;
+  --forest-deep: #3a1246;
   --moss:        #9fc82c;
   --amber:       #ec6f44;
   --ember:       #f08858;
@@ -883,13 +883,13 @@ code {
   --red-deep:    #b93136;
   --magenta:     #ff7dfc;
   --magenta-hot: #ff90fd;
-  --cyan:        #2f2562;
+  --cyan:        #743ebb;
   --cyan-bright: #d5a8d4;
-  --glow-1: rgba(220,30,68,0.38);
-  --glow-2: rgba(254,222,138,0.35);
-  --glow-3: rgba(28,13,23,0.32);
+  --glow-1: rgb(255, 125, 253);
+  --glow-2: rgba(97, 144, 254, 0.682);
+  --glow-3: rgb(255, 200, 61);
   --highlight: var(--gold);
-  --accent: var(--red);
+  --accent: var(--cyan);
 }
 
 /* =========================================================
