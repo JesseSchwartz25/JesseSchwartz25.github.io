@@ -453,9 +453,9 @@ code {
   background: var(--paper);
 }
 .tag--green   { background: var(--moss);    color: var(--paper); }
-.tag--amber   { background: var(--ember);   color: var(--ink); }
+.tag--amber   { background: var(--ember);   color: var(--paper); }
 .tag--magenta { background: var(--magenta); color: var(--paper); }
-.tag--cyan    { background: var(--cyan);    color: var(--ink); }
+.tag--cyan    { background: var(--cyan);    color: var(--paper); }
 .tag--red     { background: var(--red);     color: var(--paper); }
 
 /* =========================================================
@@ -859,8 +859,8 @@ code {
   --gold:        #f0b438;
   --magenta:     #c84468;
   --magenta-hot: #e05a7c;
-  --cyan:        #18b8b0;
-  --cyan-bright: #30d0c8;
+  --cyan:        #019c3a;
+  --cyan-bright: #30d07d;
   --glow-1: rgba(212,128,48,0.42);
   --glow-2: rgba(24,184,176,0.18);
   --glow-3: rgba(38,64,56,0.35);
