@@ -1,0 +1,21 @@
+[
+  {
+    "icon": "<p>🌲</p>",
+    "title": "AmeriCorps NCCC — Forest Corps",
+    "body": "1,600+ hours of national service with the US Forest Service reducing wildfire risk across the Western US. Certified Type 2 Firefighter &amp; Type A Sawyer.",
+    "tilt": "-0.6deg"
+  },
+  {
+    "icon": "<p>🎥</p>",
+    "title": "Film & Media Arts",
+    "body": "BA in Communication alongside my CS degree — the other half of why I care about frames that feel handmade, and the craft of moving images.",
+    "tilt": "0.5deg"
+  },
+  {
+    "icon": "<p>🥏</p>",
+    "title": "Other hobbies",
+    "body": "Ultimate frisbee, electric guitar, and a <em>Regal Unlimited</em> subscription that I'm trying to get my money's worth out of.",
+    "tilt": "-0.2deg",
+    "allowHtml": true
+  }
+]

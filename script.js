@@ -147,6 +147,105 @@ async function loadNews() {
 }
 loadNews();
 
+// ---- Load and render publications ----
+async function loadPublications() {
+  const container = document.getElementById("pubs-list");
+  if (!container) return;
+  try {
+    const res = await fetch("publications.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("Failed to fetch publications.json");
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      container.innerHTML = `
+        <div class="pubs__empty">
+          <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true">
+            <path d="M10 6h22l6 6v30H10z" fill="none" stroke-width="2"/>
+            <path d="M32 6v6h6" fill="none" stroke-width="2"/>
+            <path d="M16 22h16M16 28h16M16 34h10" fill="none" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <p>Papers in progress. This space will fill up soon — check back.</p>
+        </div>`;
+      return;
+    }
+    container.innerHTML = data.map(pub => {
+      const links = (pub.links || []).map(l =>
+        `<a href="${esc(l.url)}">${esc(l.label)}</a>`
+      ).join("");
+      return `
+        <article class="pub">
+          <p class="pub__venue">${esc(pub.venue || "")}</p>
+          <h4 class="pub__title">${esc(pub.title || "")}</h4>
+          <p class="pub__authors">${pub.authors || ""}</p>
+          ${links ? `<div class="pub__links">${links}</div>` : ""}
+        </article>`;
+    }).join("");
+  } catch (err) {
+    console.error(err);
+  }
+}
+loadPublications();
+
+// ---- Load and render projects ----
+async function loadProjects() {
+  const grid = document.getElementById("project-grid");
+  if (!grid) return;
+  try {
+    const res = await fetch("projects.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("Failed to fetch projects.json");
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      grid.innerHTML = `
+        <p class="pubs__empty" style="grid-column:1/-1">
+          Projects coming soon — check back.
+        </p>`;
+      return;
+    }
+    grid.innerHTML = data.map(p => {
+      const tags = (p.tags || []).map(t => `<span>${esc(t)}</span>`).join("");
+      const badge = p.badge ? `<span class="project__badge">${esc(p.badge)}</span>` : "";
+      const thumbClass = p.thumbClass ? ` project__thumb--${esc(p.thumbClass)}` : "";
+      return `
+        <article class="project" style="--tilt: ${esc(p.tilt || "0deg")}">
+          <div class="project__thumb${thumbClass}">${badge}</div>
+          <h3>${esc(p.title || "")}</h3>
+          <p>${esc(p.description || "")}</p>
+          ${tags ? `<div class="project__tags">${tags}</div>` : ""}
+        </article>`;
+    }).join("");
+  } catch (err) {
+    console.error(err);
+  }
+}
+loadProjects();
+
+// ---- Load and render beyond ----
+async function loadBeyond() {
+  const container = document.getElementById("beyond-list");
+  if (!container) return;
+  try {
+    const res = await fetch("beyond.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("Failed to fetch beyond.json");
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      container.innerHTML = "<p>More coming soon.</p>";
+      return;
+    }
+    container.innerHTML = data.map(item => {
+      const body = item.allowHtml ? (item.body || "") : esc(item.body || "");
+      return `
+        <div class="beyond__card" style="--tilt: ${esc(item.tilt || "0deg")}">
+          <div class="beyond__emoji" aria-hidden="true">${item.icon || ""}</div>
+          <h3>${esc(item.title || "")}</h3>
+          <p>${body}</p>
+        </div>`;
+    }).join("");
+    applyAccents(document.documentElement.dataset.theme);
+  } catch (err) {
+    console.error(err);
+  }
+}
+loadBeyond();
+
 // ---- Smooth-highlight the current section in the nav ----
 const sectionIds = ["about","news","research","projects","teaching","beyond"];
 const navLinks = Array.from(document.querySelectorAll(".nav__links a"));

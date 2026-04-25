@@ -148,29 +148,11 @@
           brushstrokes, ink, watercolor, stepped motion. The kind of frames that look like a
           human made them, even when a computer did.
         </p>
-        <div class="pubs">
-          <!-- <h3 class="pubs__title">Publications</h3>
-          <div class="pubs__empty">
-            <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true">
-              <path d="M10 6h22l6 6v30H10z" fill="none" stroke-width="2"/>
-              <path d="M32 6v6h6" fill="none" stroke-width="2"/>
-              <path d="M16 22h16M16 28h16M16 34h10" fill="none" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <p>Papers in progress. This space will fill up soon — check back.</p>
-          </div> -->
-          <!-- When you publish, copy this template:
-          <article class="pub">
-            <p class="pub__venue">Venue · Year</p>
-            <h4 class="pub__title">Paper Title</h4>
-            <p class="pub__authors">Author, Author, <strong>Jesse Schwartz</strong>, Author</p>
-            <div class="pub__links">
-              <a href="#">PDF</a><a href="#">Code</a><a href="#">Project page</a>
-            </div>
-          </article>
-        -->
+        <div class="pubs" id="pubs-list">
+          <!-- Populated from publications.json by script.js -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   
   <!-- ============ NEWS ============ -->
   <section class="section" id="news">
@@ -185,46 +167,14 @@
   </section>
 
     <!-- ============ PROJECTS ============ -->
-
-<!--     
+<!--
     <section class="section" id="projects">
       <h2 class="section__title"><span>Projects</span></h2>
-      <div class="project-grid">
-        <!-- Edit these cards, or delete / duplicate to add more. 
-        <article class="project" style="--tilt: -0.6deg;">
-          <div class="project__thumb project__thumb--forest">
-            <span class="project__badge">Coming soon</span>
-          </div>
-          <h3>Project Title</h3>
-          <p>Short description of what this project explores — tools used, paper it relates to, one sentence on the technique.</p>
-          <div class="project__tags">
-            <span>WebGL</span><span>NPR</span>
-          </div>
-        </article>
-
-        <article class="project" style="--tilt: 0.8deg;">
-          <div class="project__thumb project__thumb--sunset">
-            <span class="project__badge">Coming soon</span>
-          </div>
-          <h3>Project Title</h3>
-          <p>Replace this placeholder with a short note on an animation pipeline, a shader study, a renderer, anything.</p>
-          <div class="project__tags">
-            <span>Unity</span><span>Shaders</span>
-          </div>
-        </article>
-
-        <article class="project" style="--tilt: -0.3deg;">
-          <div class="project__thumb project__thumb--dusk">
-            <span class="project__badge">Coming soon</span>
-          </div>
-          <h3>Project Title</h3>
-          <p>Drop in a GIF or still into <code>assets/</code> and swap the gradient for a real thumbnail when ready.</p>
-          <div class="project__tags">
-            <span>C++</span><span>Real-time</span>
-          </div>
-        </article>
+      <div class="project-grid" id="project-grid">
+        <!-- Populated from projects.json by script.js -->
       </div>
-    </section> -->
+    </section>
+-->
 
     <!-- ============ TEACHING ============ -->
     <section class="section" id="teaching">
@@ -249,39 +199,8 @@
     <!-- ============ BEYOND ============ -->
     <section class="section" id="beyond">
       <h2 class="section__title"><span>Beyond the lab</span></h2>
-      <div class="beyond">
-        <div class="beyond__card" style="--tilt: -0.6deg;">
-          <div class="beyond__emoji" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="36" height="36"><path d="M24 6 L14 26 L20 26 L16 42 L34 22 L28 22 L34 6 Z" fill="currentColor"/></svg>
-          </div>
-          <h3>AmeriCorps NCCC — Forest Corps</h3>
-          <p>
-            1,600+ hours of national service with the US Forest Service reducing wildfire risk
-            across the Western US. Certified Type 2 Firefighter &amp; Type A Sawyer.
-          </p>
-        </div>
-        <div class="beyond__card" style="--tilt: 0.5deg;">
-          <div class="beyond__emoji" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="36" height="36"><circle cx="24" cy="24" r="14" fill="none" stroke-width="3"/><circle cx="24" cy="24" r="5" fill="currentColor"/><path d="M2 24h8M38 24h8M24 2v8M24 38v8" stroke-width="3" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Film &amp; Media Arts</h3>
-          <p>
-            BA in Communication alongside my CS degree — the other half of why I care about frames
-            that feel handmade, and the craft of moving images.
-          </p>
-        </div>
-        <div class="beyond__card" style="--tilt: -0.2deg;">
-          <div class="beyond__emoji" aria-hidden="true">
-            <!-- <svg viewBox="0 0 48 48" width="36" height="36"><path d="M8 40 L24 8 L40 40 Z" fill="none" stroke-width="3"/><path d="M16 28 L32 28" stroke-width="3"/></svg> -->
-             <!-- frisbee emoji -->
-            <p>🥏</p>
-          </div>
-          <h3>Other hobbies</h3>
-          <p>
-            Ultimate frisbee, electric guitar, and a <italic>Regal Unlimited</italic> subscription that I'm trying to get my money's worth out of.
-            
-          </p>
-        </div>
+      <div class="beyond" id="beyond-list">
+        <!-- Populated from beyond.json by script.js -->
       </div>
     </section>
 
