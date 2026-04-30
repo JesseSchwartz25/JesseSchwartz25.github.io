@@ -200,14 +200,24 @@ async function loadProjects() {
         </p>`;
       return;
     }
+    data.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
     grid.innerHTML = data.map(p => {
       const tags = (p.tags || []).map(t => `<span>${esc(t)}</span>`).join("");
       const badge = p.badge ? `<span class="project__badge">${esc(p.badge)}</span>` : "";
       const thumbClass = p.thumbClass ? ` project__thumb--${esc(p.thumbClass)}` : "";
+      const thumb = p.image
+        ? `<div class="project__thumb${thumbClass}">
+             <img src="${esc(p.image)}" alt="${esc(p.title || "")}" loading="lazy" />
+             ${badge}
+           </div>`
+        : `<div class="project__thumb${thumbClass}">${badge}</div>`;
+      const titleEl = p.link
+        ? `<h3><a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.title || "")}</a></h3>`
+        : `<h3>${esc(p.title || "")}</h3>`;
       return `
         <article class="project" style="--tilt: ${esc(p.tilt || "0deg")}">
-          <div class="project__thumb${thumbClass}">${badge}</div>
-          <h3>${esc(p.title || "")}</h3>
+          ${thumb}
+          ${titleEl}
           <p>${esc(p.description || "")}</p>
           ${tags ? `<div class="project__tags">${tags}</div>` : ""}
         </article>`;

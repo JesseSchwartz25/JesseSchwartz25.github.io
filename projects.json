@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "title": "Troubled Tributary: Maryland's Patuxent River",
+        "description": "A documentary about the Patuxent River. I was an Associate Producer on the project, which aired on Maryland Public Television in 2022 as a part of Chesapeake Bay Week.",
+        "link": "https://video.mpt.tv/video/troubled-tributary-marylands-patuxent-river-znhvj0/",
+        "date": "2022-05",
+        "image": "assets/tt.png",
+        "order": 3
+        
+    },
+    {
+        "title": "Intuitive Physics in VR",
+        "description": "A research project exploring how to humans interact with. digital materials in virtual reality. Advised by Dr. Bei Xiao at American University and presented at Capital Graphics 2022.",
+        "date": "2022-06",
+        "image": "assets/ip.png",
+        "order": 1
+    },
+    {
+        "title": "Space Ocean Library",
+        "description": "An immersive film on memory and loss. Presented at UFVA (University Film and Video Association) conference in 2022 in association with the Insitute for IDEAS at American University.",
+        "link": "https://www.american.edu/centers/ideas-institute/space-ocean-library.cfm",
+        "date": "2026-06",
+        "image": "assets/sol.png",
+        "order": 2
+    }
+
+]

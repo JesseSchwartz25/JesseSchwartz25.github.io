@@ -609,6 +609,15 @@ code {
   border-bottom: 2.5px solid var(--ink);
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+}
+.project__thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .project__thumb--forest {
   background:

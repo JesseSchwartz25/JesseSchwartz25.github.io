@@ -1,19 +1,19 @@
 [
   {
     "date": "2026-05",
-    "title": "I will be attending Capital Graphics 2026"
+    "title": "I will be presenting at Capital Graphics 2026!"
   },
   {
     "date": "2025-08",
-    "title": "Began teaching as a Graduate Teaching Assistant at George Mason University"
+    "title": "Started working as a Graduate Teaching Assistant at George Mason University"
   },
   {
     "date": "2025-08",
-    "title": "Started a PhD at George Mason University"
+    "title": "Began my PhD at George Mason University"
   },
   {
     "date": "2024-06",
-    "title": "Started AmeriCorps NCCC — Forest Corps"
+    "title": "Started a year of National Service with AmeriCorps NCCC Forest Corps 🌲🌲🌲🌲"
   },
   {
     "date": "2022-05",
@@ -21,10 +21,20 @@
   },
   {
     "date": "2022-08",
-    "title": "Started working at Comcast as a Machine Learning Engineer on the Page Optimization team"
+    "title": "Started working at Comcast as a Machine Learning Engineer on the Page Optimization team",
+    "body": "My team worked on the ordering of on-demand menu items for each user. I worked on a project to to offer users more content from their favorite filmmakers, editors, producers, etc. by identifying patterns in the metadata of the content they watched and offering more content with similar metadata."
   },
   {
     "date": "2022-06",
-    "title": "Attended Capital Graphics 2022"
+    "title": "Presented my intuitive physics research at Capital Graphics 2022"
+  },
+  {
+    "date": "2021-06",
+    "title": "Started working as a research assistant with Dr. Bei Xiao at American University, exploring how humans interact with digital materials in virtual reality"
+  },
+  {
+    "date": "2022-05",
+    "title": "Started working as a reserach assistant with the Institute for IDEAS at American University",
+    "body": "Worked on mixed reality telecommunications for healthcare and immersive film projects"
   }
 ]

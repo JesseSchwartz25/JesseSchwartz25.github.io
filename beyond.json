@@ -1,9 +1,10 @@
 [
   {
     "icon": "<p>🌲</p>",
-    "title": "AmeriCorps NCCC — Forest Corps",
-    "body": "1,600+ hours of national service with the US Forest Service reducing wildfire risk across the Western US. Certified Type 2 Firefighter &amp; Type A Sawyer.",
-    "tilt": "-0.6deg"
+    "title": "Wildland Firefighting",
+    "body": "1,600+ hours of national service with the US Forest Service through AmeriCorps NCCC — Forest Corps, reducing wildfire risk across the Western US. Certified Type 2 Firefighter & Type A Sawyer (Bucker and Faller).<br>Ask me about my favorite prescribed burn I participated in!",
+    "tilt": "-0.6deg",
+    "allowHtml": true
   },
   {
     "icon": "<p>🎥</p>",
