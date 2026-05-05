@@ -139,23 +139,33 @@ async function loadNews() {
 
     if (data.length > VISIBLE) {
       const allItems = [...list.querySelectorAll(".news-item")];
-      allItems.slice(VISIBLE).forEach(el => el.classList.add("news-item--hidden"));
+      const trigger = allItems[VISIBLE - 1];
+
+      // Measure heights (reading offsetHeight forces layout)
+      const fullHeight = list.scrollHeight;
+      const collapsedHeight = trigger.offsetTop + trigger.offsetHeight;
+
+      // Set collapsed state without animating the initial paint
+      list.style.transition = "none";
+      list.style.height = collapsedHeight + "px";
       list.classList.add("timeline--collapsed");
+      trigger.classList.add("news-item--trigger");
+      requestAnimationFrame(() => { list.style.transition = ""; });
 
-      const toggle = document.createElement("button");
-      toggle.className = "news-toggle";
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.textContent = "Show all";
+      const expander = document.createElement("div");
+      expander.className = "news-expander";
+      expander.innerHTML = '<span class="news-expander__arrow">↓</span>';
+      list.after(expander);
 
-      toggle.addEventListener("click", () => {
-        const expanding = toggle.getAttribute("aria-expanded") === "false";
-        allItems.slice(VISIBLE).forEach(el => el.classList.toggle("news-item--hidden", !expanding));
-        list.classList.toggle("timeline--collapsed", !expanding);
-        toggle.setAttribute("aria-expanded", String(expanding));
-        toggle.textContent = expanding ? "Show less" : "Show all";
-      });
-
-      list.after(toggle);
+      let expanded = false;
+      function toggleNews() {
+        expanded = !expanded;
+        list.style.height = (expanded ? fullHeight : collapsedHeight) + "px";
+        list.classList.toggle("timeline--collapsed", !expanded);
+        expander.querySelector(".news-expander__arrow").textContent = expanded ? "↑" : "↓";
+      }
+      trigger.addEventListener("click", toggleNews);
+      expander.addEventListener("click", toggleNews);
     }
   } catch (err) {
     console.error(err);
