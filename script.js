@@ -163,7 +163,7 @@ async function loadPublications() {
             <path d="M32 6v6h6" fill="none" stroke-width="2"/>
             <path d="M16 22h16M16 28h16M16 34h10" fill="none" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          <p>Papers in progress. This space will fill up soon — check back.</p>
+          <p>Papers in progress. This space will fill up soon.</p>
         </div>`;
       return;
     }

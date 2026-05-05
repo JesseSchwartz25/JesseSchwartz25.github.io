@@ -30,11 +30,21 @@
   },
   {
     "date": "2021-06",
-    "title": "Started working as a research assistant with Dr. Bei Xiao at American University, exploring how humans interact with digital materials in virtual reality"
+    "title": "Started working as a research assistant with Dr. Bei Xiao at American University",
+    "body": "Explored intuitive physics in virtual reality"
   },
   {
     "date": "2022-05",
     "title": "Started working as a reserach assistant with the Institute for IDEAS at American University",
     "body": "Worked on mixed reality telecommunications for healthcare and immersive film projects"
+  },
+  {
+    "date": "2026-07",
+    "title": "I will be attending SIGGRAPH 2026 in Los Angeles, CA!",
+    "body": "This is my first time attending SIGGRAPH"
+  },
+  {
+    "date": "2019-08",
+    "title": "Began studying Computer Science and Film at American University"
   }
 ]
