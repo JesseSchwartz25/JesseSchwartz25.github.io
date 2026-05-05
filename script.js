@@ -132,9 +132,31 @@ async function loadNews() {
       list.innerHTML = '<li class="timeline__loading">No news yet — check back soon.</li>';
       return;
     }
+    const VISIBLE = 6;
     data.sort(sortNews);
     list.innerHTML = data.map(renderItem).join("");
     applyAccents(document.documentElement.dataset.theme);
+
+    if (data.length > VISIBLE) {
+      const allItems = [...list.querySelectorAll(".news-item")];
+      allItems.slice(VISIBLE).forEach(el => el.classList.add("news-item--hidden"));
+      list.classList.add("timeline--collapsed");
+
+      const toggle = document.createElement("button");
+      toggle.className = "news-toggle";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "Show all";
+
+      toggle.addEventListener("click", () => {
+        const expanding = toggle.getAttribute("aria-expanded") === "false";
+        allItems.slice(VISIBLE).forEach(el => el.classList.toggle("news-item--hidden", !expanding));
+        list.classList.toggle("timeline--collapsed", !expanding);
+        toggle.setAttribute("aria-expanded", String(expanding));
+        toggle.textContent = expanding ? "Show less" : "Show all";
+      });
+
+      list.after(toggle);
+    }
   } catch (err) {
     console.error(err);
     list.innerHTML = `

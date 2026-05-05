@@ -528,6 +528,31 @@ code {
   color: var(--ink-soft);
   font-style: italic;
 }
+.news-item--hidden { display: none; }
+.timeline--collapsed {
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+.news-toggle {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 6px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  margin: 4px 0 0 48px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s steps(3), box-shadow 0.15s steps(3), background 0.15s;
+}
+.news-toggle:hover {
+  background: var(--highlight);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(8px); }
