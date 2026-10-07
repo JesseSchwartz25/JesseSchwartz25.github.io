@@ -1,7 +1,8 @@
 [
   {
     "date": "2026-05",
-    "title": "I will be presenting at Capital Graphics 2026!"
+    "title": "I presented at Capital Graphics 2026!",
+    "body": "This was my second time presenting at Capitol Graphics"
   },
   {
     "date": "2025-08",
@@ -40,8 +41,8 @@
   },
   {
     "date": "2026-07",
-    "title": "I will be attending SIGGRAPH 2026 in Los Angeles, CA!",
-    "body": "This is my first time attending SIGGRAPH"
+    "title": "I attended SIGGRAPH 2026 in Los Angeles, CA!",
+    "body": "This was my first time attending SIGGRAPH"
   },
   {
     "date": "2019-08",
